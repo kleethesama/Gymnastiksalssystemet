@@ -26,8 +26,6 @@ namespace Gymnastiksalssystemet
         public Booking(Group grp, DateTime start, DateTime end, int hallId)
         {
             _date = DateTime.Now;
-            _start = start;
-            _end = end;
             _hallId = hallId;
             _Id = 0; // TODO
         }
@@ -37,6 +35,15 @@ namespace Gymnastiksalssystemet
             var dateToday = DateTime.Today;
             var day = dateToday.DayOfWeek;
             return day.ToString();
+        }
+
+        public override string ToString()
+        {
+            string description = string.Empty;
+            description += $"This booking is set for the date: {_date.ToLongDateString()}\n";
+            description += $"The booking time is between: {_start.TimeOfDay} and {_end.TimeOfDay}\n";
+            description += $"The hall ID is: {_hallId}";
+            return description;
         }
     }
 }
