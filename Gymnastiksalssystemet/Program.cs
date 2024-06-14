@@ -10,7 +10,7 @@ var startTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now
 var endTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 13 - 1, 0, 0); ;
 
 // Instantiating a booking for today between 9 AM and 12 PM.
-var testBooking = new Booking(testGroup, startTime, endTime, 4);
+var testBooking = new Booking(testGroup, startTime, endTime, 4, 0);
 
 // Setting booking time from 9 AM to 13 PM for Sunday.
 var startTimeSunday = new DateTime(2024, 6, 16);
@@ -22,7 +22,7 @@ endTimeSunday = endTimeSunday.AddHours(13);
 //Console.WriteLine(endTimeSunday);
 
 // Instantiating a booking for this Sunday between 11 AM and 16 PM.
-var testBookingSunday = new Booking(testGroup, startTimeSunday, endTimeSunday, 5);
+var testBookingSunday = new Booking(testGroup, startTimeSunday, endTimeSunday, 5, 1);
 
 //Console.WriteLine("\n" + testBooking);
 

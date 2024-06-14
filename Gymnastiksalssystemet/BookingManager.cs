@@ -57,6 +57,18 @@ namespace Gymnastiksalssystemet
             return booking._start.Hour >= 10 - 1 && booking._end.Hour <= 18 - 1;
         }
 
+        private bool CheckIfBookingOverlaps(Booking booking)
+        {
+            foreach (Booking bookingInList in _Bookings)
+            {
+                if (booking._date.Date == bookingInList._date.Date)
+                {
+                    return booking._start.Hour >= bookingInList._start.Hour && booking._end.Hour <= bookingInList._end.Hour;
+                }
+            }
+            return false;
+        }
+
         public override string ToString()
         {
             string description = string.Empty;
