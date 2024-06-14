@@ -10,7 +10,7 @@ var startTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now
 var endTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 13 - 1, 0, 0); ;
 
 // Instantiating a booking for today between 9 AM and 12 PM.
-var testBooking = new Booking(testGroup, startTime, endTime, 4, 0);
+var testBooking = new Booking(testGroup, startTime, endTime, 1, 0);
 
 // Setting booking time from 9 AM to 13 PM for Sunday.
 var startTimeSunday = new DateTime(2024, 6, 16);
@@ -22,7 +22,7 @@ endTimeSunday = endTimeSunday.AddHours(13);
 //Console.WriteLine(endTimeSunday);
 
 // Instantiating a booking for this Sunday between 11 AM and 16 PM.
-var testBookingSunday = new Booking(testGroup, startTimeSunday, endTimeSunday, 5, 1);
+var testBookingSunday = new Booking(testGroup, startTimeSunday, endTimeSunday, 1, 1);
 
 //Console.WriteLine("\n" + testBooking);
 
@@ -42,8 +42,8 @@ var testOveralpEndTime1 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, Da
 var testOveralpStartTime2 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 11 - 1, 0, 0);
 var testOveralpEndTime2 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12 - 1, 0, 0); ;
 
-var testOverlapBooking1 = new Booking(testGroup, testOveralpStartTime1, testOveralpEndTime1, 4, 0);
-var testOverlapBooking2 = new Booking(testGroup, testOveralpStartTime2, testOveralpEndTime2, 4, 0);
+var testOverlapBooking1 = new Booking(testGroup, testOveralpStartTime1, testOveralpEndTime1, 2, 0);
+var testOverlapBooking2 = new Booking(testGroup, testOveralpStartTime2, testOveralpEndTime2, 2, 0);
 
 var testOverlapBookingManager = new BookingManager();
 testOverlapBookingManager.AddBooking(testOverlapBooking1);
