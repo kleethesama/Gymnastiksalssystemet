@@ -10,7 +10,7 @@ namespace Gymnastiksalssystemet
     {
         public List<Booking> _Bookings { get; private set; }
 
-        private BookingManager()
+        public BookingManager()
         {
             _Bookings = [];
         }
@@ -25,6 +25,10 @@ namespace Gymnastiksalssystemet
             if (!CheckTimeAmount(booking))
             {
                 throw new Exception("Booking hours are too long. Max. 2 hours!");
+            }
+            if (CheckIfBookingOverlaps(booking))
+            {
+                throw new Exception("This booking overlaps with another booking!");
             }
             if (CheckIfSunday(booking) && CheckIfBookingTimeIsValidForSunday(booking))
             {
@@ -63,7 +67,10 @@ namespace Gymnastiksalssystemet
             {
                 if (booking._date.Date == bookingInList._date.Date)
                 {
-                    return booking._start.Hour >= bookingInList._start.Hour && booking._end.Hour <= bookingInList._end.Hour;
+                    if (booking._start.Hour >= bookingInList._start.Hour && booking._start.Hour <= bookingInList._end.Hour)
+                    {
+                        return true;
+                    }
                 }
             }
             return false;

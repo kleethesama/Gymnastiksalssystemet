@@ -34,7 +34,20 @@ var testBookingManager = new BookingManager(allBookings);
 
 Console.WriteLine("\n" + testBookingManager);
 
-// Testing
+// Setting booking time from 9 AM to 16 PM today.
+var testOveralpStartTime1 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 9 - 1, 0, 0);
+var testOveralpEndTime1 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 11 - 1, 0, 0); ;
+
+// Setting booking time from 11 AM to 14 PM today.
+var testOveralpStartTime2 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12 - 1, 0, 0);
+var testOveralpEndTime2 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 13 - 1, 0, 0); ;
+
+var testOverlapBooking1 = new Booking(testGroup, testOveralpStartTime1, testOveralpEndTime1, 4, 0);
+var testOverlapBooking2 = new Booking(testGroup, testOveralpStartTime2, testOveralpEndTime2, 4, 0);
+
+var testOverlapBookingManager = new BookingManager();
+testOverlapBookingManager.AddBooking(testOverlapBooking1);
+testOverlapBookingManager.AddBooking(testOverlapBooking2);
 
 // Testing if the booking is between 8 AM and 20 PM (not Sunday).
 Debug.Assert(testBookingManager._Bookings[0]._start.Hour >= 8 - 1 && testBookingManager._Bookings[0]._end.Hour <= 20 - 1);
