@@ -56,5 +56,17 @@ namespace Gymnastiksalssystemet
         {
             return booking._start.Hour >= 10 - 1 && booking._end.Hour <= 18 - 1;
         }
+
+        public override string ToString()
+        {
+            string description = string.Empty;
+            description += $"There are currently {_Bookings.Count} amount of bookings.\n";
+            description += "Here are all the bookings:";
+            foreach (Booking booking in _Bookings)
+            {
+                description += $"\n\n{booking}";
+            }
+            return description;
+        }
     }
 }
